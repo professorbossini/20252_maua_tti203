@@ -1,4 +1,80 @@
+///esse é o método main
 void main(){
+  String s = "abc";
+  int indice = s.indexOf("b");
+
+  int a = 2;
+  int indice2 = a.indexOf("2");
+  // int a = 1;
+  // a++;
+  // print(a);//2
+  // ++a;
+  // print(a);//3
+  // print(a++);//3
+  // //agora vale 4
+  // print(++a);
+  // num a = 2.5;
+  // switch(a){
+  //   case >= 2 && <= 5:
+  //     print ("Sim");
+    
+  // }
+  //switch/expression
+  // var mediaFinal = 5;
+  // final conceito = switch(mediaFinal){
+  //   10 || 9 => "A",
+  //   8 => "B",
+  //   7 => "C",
+  //   6 => "D",
+  //   5 => "E",
+  //   _ => "R"
+  // };
+  // var a = 2;
+  // var b = 2 + 2;
+  // var c = b;
+  // var d = if(c > 2){
+  //   print('oi');
+  // }
+  // var nota = 9.7;
+  // switch(nota){
+  //   case >= 9 && <= 10:
+  //     print("A");
+  // }
+  // const nota = 10;
+  // switch(nota){
+  //   case 9 || 10:
+  //     print("A");
+  // }
+  // const nota = 10; //fall-through
+  // switch(nota){
+  //   case 10:
+  //   case 9:
+  //     print("A");
+  //   case 8:
+  //     print("B");
+  //   case 7:
+  //     print("C");
+  //   case 6:
+  //     print("D");
+  //   case 5:
+  //     print("E");
+  //   default:
+  //     print("R");
+  // }
+  // const idade = 19;
+  // if(idade >= 18){
+  //   print('Pode dirigir');
+  // }
+  // else{
+  //   print('Não pode');
+  // }
+  //const, final e var
+  // const a = "abc";
+  // final b = "abc".toUpperCase();
+  // //b = "d";
+  // bool c = true;
+  // c = 3;
+  // final b = null;
   // var n1 = 2;
   // const n2 = n1 + 2;
   //final e const
