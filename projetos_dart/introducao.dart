@@ -1,4 +1,61 @@
+// import 'dart:math';
+
 void main(){
+  // var a   = pow(x, exponent)
+  // //switch/expression
+  // var nota = 5;
+  // final conceito = switch(nota){
+  //   10 || 9 => 'A',
+  //   8 => 'B',
+  //   7 => 'C',
+  //   _ => 'R'
+  // };
+  //statement
+  // var resultado = if(2 > 3){
+  //   print("Oi");
+  // }
+  // var a = print("OI");
+  // var a = break; 
+  //expression
+  // var a = 2 > 2;
+  // var a = 2;
+  // var b = a;
+  // var nota = 9.7;
+  // switch(nota){
+  //   case >= 9 && <= 10:
+  //     print ("A");
+  // }
+  // const nota = 10;
+  // //fall-through
+  // switch(nota){
+  //   // case 10:
+  //   // case 9:
+  //   case 10 || 9:
+  //     print("A");
+  //   case 8:
+  //     print("B");
+  //   case 7:
+  //     print("C");
+  //   default:
+  //     print("R");
+  // }
+  // const idade = 19;
+  // if(idade >=18){
+  //   print("Sim"); 
+  //   print("Até mais");
+  // }
+  // //dangling else
+  // else
+  //   print("Não");
+    // var a = 2;
+  // int b = 2;
+  // a = 2;
+  // a = 3;
+  // a = "abc";
+  // final a;
+  // a = "abc".toLowerCase();
+  // a = "d";
+  // const a = "abc".toUpperCase();
   // var n1 = 2;
   // const n2 = n1 + 2;
   //final e const
