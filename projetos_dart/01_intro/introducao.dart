@@ -1,22 +1,30 @@
+
 void main(){
   //switch expression
   var mediaFinal = 5;
-  // var teste = if(mediaFinal > 2){
-  //   return 2;
-  // }
-  final conceito = switch(mediaFinal){
-    10 || 9 => "A",
-    8 => 'B',
-    7 => 'C',
-    6 => 'D',
-    5 => 'E',
-    _ => 'R'
+  final conceitoFinal = switch(mediaFinal){
+    10 => "A",
+    9 => "A",
+    8 => "B",
+    7 => "C",
+    _ => "R"
   };
-  //const nota = 10;
-  // double nota = 9.7;
+  // var a = 2;
+  // var b = 2 + 2;
+  // var c = "abc";
+  // var d = print("oi");
+  // var j = a;
+  // var e = if(a > b){
+  //   print('oi');
+  // }
+  // var f = switch(a){
+  //   case 10:
+  //     print("OI");
+  // };
+  // const nota = 9.7;
   // switch(nota){
   //   case >= 9 && <= 10:
-  //     print ('A');
+  //     print("A");
   // }
   //fall-through
   // switch(nota){
@@ -39,16 +47,12 @@ void main(){
   //     print("R");
   // }
   // const idade = 19;
-  // if(idade > 18){
-  //   print('Pode dirigir');
+  // if(idade >= 18){
+  //   print("Sim, pode dirigir");
   // }
   // else{
-  //   print('Não pode dirigir');
+  //   print("Não pode");
   // }
-  // const a = 2;
-  // final b = "";
-  // var c = 2;
-  // c = 3;
   // var n1 = 2;
   // const n2 = n1 + 2;
   //final e const
