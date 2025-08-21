@@ -1,51 +1,36 @@
-///esse é o método main
-void main(){
-  String s = "abc";
-  int indice = s.indexOf("b");
 
-  int a = 2;
-  int indice2 = a.indexOf("2");
-  // int a = 1;
-  // a++;
-  // print(a);//2
-  // ++a;
-  // print(a);//3
-  // print(a++);//3
-  // //agora vale 4
-  // print(++a);
-  // num a = 2.5;
-  // switch(a){
-  //   case >= 2 && <= 5:
-  //     print ("Sim");
-    
-  // }
-  //switch/expression
-  // var mediaFinal = 5;
-  // final conceito = switch(mediaFinal){
-  //   10 || 9 => "A",
-  //   8 => "B",
-  //   7 => "C",
-  //   6 => "D",
-  //   5 => "E",
-  //   _ => "R"
-  // };
+void main(){
+  //switch expression
+  var mediaFinal = 5;
+  final conceitoFinal = switch(mediaFinal){
+    10 => "A",
+    9 => "A",
+    8 => "B",
+    7 => "C",
+    _ => "R"
+  };
   // var a = 2;
   // var b = 2 + 2;
-  // var c = b;
-  // var d = if(c > 2){
+  // var c = "abc";
+  // var d = print("oi");
+  // var j = a;
+  // var e = if(a > b){
   //   print('oi');
   // }
-  // var nota = 9.7;
+  // var f = switch(a){
+  //   case 10:
+  //     print("OI");
+  // };
+  // const nota = 9.7;
   // switch(nota){
   //   case >= 9 && <= 10:
   //     print("A");
   // }
-  // const nota = 10;
+  //fall-through
   // switch(nota){
-  //   case 9 || 10:
+  //   case 10 || 9:
   //     print("A");
   // }
-  // const nota = 10; //fall-through
   // switch(nota){
   //   case 10:
   //   case 9:
@@ -63,18 +48,11 @@ void main(){
   // }
   // const idade = 19;
   // if(idade >= 18){
-  //   print('Pode dirigir');
+  //   print("Sim, pode dirigir");
   // }
   // else{
-  //   print('Não pode');
+  //   print("Não pode");
   // }
-  //const, final e var
-  // const a = "abc";
-  // final b = "abc".toUpperCase();
-  // //b = "d";
-  // bool c = true;
-  // c = 3;
-  // final b = null;
   // var n1 = 2;
   // const n2 = n1 + 2;
   //final e const
