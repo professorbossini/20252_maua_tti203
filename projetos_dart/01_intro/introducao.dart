@@ -1,3 +1,4 @@
+<<<<<<< HEAD:projetos_dart/introducao.dart
 // import 'dart:math';
 
 void main(){
@@ -32,14 +33,61 @@ void main(){
   //   // case 9:
   //   case 10 || 9:
   //     print("A");
+=======
+
+void main(){
+  //switch expression
+  var mediaFinal = 5;
+  final conceitoFinal = switch(mediaFinal){
+    10 => "A",
+    9 => "A",
+    8 => "B",
+    7 => "C",
+    _ => "R"
+  };
+  // var a = 2;
+  // var b = 2 + 2;
+  // var c = "abc";
+  // var d = print("oi");
+  // var j = a;
+  // var e = if(a > b){
+  //   print('oi');
+  // }
+  // var f = switch(a){
+  //   case 10:
+  //     print("OI");
+  // };
+  // const nota = 9.7;
+  // switch(nota){
+  //   case >= 9 && <= 10:
+  //     print("A");
+  // }
+  //fall-through
+  // switch(nota){
+  //   case 10 || 9:
+  //     print("A");
+  // }
+  // switch(nota){
+  //   case 10:
+  //   case 9:
+  //     print("A");
+>>>>>>> bossini-principal:projetos_dart/01intro/introducao.dart
   //   case 8:
   //     print("B");
   //   case 7:
   //     print("C");
+<<<<<<< HEAD:projetos_dart/introducao.dart
+=======
+  //   case 6:
+  //     print("D");
+  //   case 5:
+  //     print("E");
+>>>>>>> bossini-principal:projetos_dart/01intro/introducao.dart
   //   default:
   //     print("R");
   // }
   // const idade = 19;
+<<<<<<< HEAD:projetos_dart/introducao.dart
   // if(idade >=18){
   //   print("Sim"); 
   //   print("Até mais");
@@ -56,6 +104,14 @@ void main(){
   // a = "abc".toLowerCase();
   // a = "d";
   // const a = "abc".toUpperCase();
+=======
+  // if(idade >= 18){
+  //   print("Sim, pode dirigir");
+  // }
+  // else{
+  //   print("Não pode");
+  // }
+>>>>>>> bossini-principal:projetos_dart/01intro/introducao.dart
   // var n1 = 2;
   // const n2 = n1 + 2;
   //final e const
