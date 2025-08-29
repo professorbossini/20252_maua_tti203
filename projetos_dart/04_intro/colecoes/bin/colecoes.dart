@@ -1,8 +1,54 @@
+import 'dart:js_interop';
+
 import 'package:colecoes/colecoes.dart' as colecoes;
 
 void main(List<String> arguments) {
-  var portugues = {'Brasil', 'Portugal'};
-  var europa = {'Alemanha', 'Portugal', 'Espanha'};
+  var contato = {'Ana': 122345670};
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18
+  // };
+  // print(pessoa.entries);
+  // print(pessoa.entries.runtimeType);
+  // for(final entry in pessoa.entries){
+  //   //nome: Ana
+  //   //idade: 18
+  //   print("${entry.key}: ${entry.value}");
+  // }
+  // print(pessoa.values);
+  // for(final value in pessoa.values){
+  //   print(value);
+  // }
+  //keys, values e entries
+  // for(final key in pessoa.keys){
+  //   print(key);
+  //   //nome: Ana, idade: 18
+  //   print('$key: ${pessoa[key]}');
+  // }
+  // var nome = pessoa['nome'] as String;
+  // print(nome.length);
+  // var idade = pessoa['idade'] as String;
+  // print(idade.length);
+  // print(pessoa['nome']);
+  // print(pessoa['idade']);
+  // print(pessoa['altura'].jsify());
+  // print(pessoa['altura']);
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18,
+  //   'altura': '1.8'
+  // };
+  // print(pessoa.runtimeType);
+  // var teste = <Object?, Object?>{};
+  // var teste2 = {};
+  // teste = 1;
+  // var portugues = {'Brasil', 'Portugal'};
+  // var europa = {'Alemanha', 'Portugal', 'Espanha'};
+  // //Todos os países exceto aqueles em que se fala português e que são europeus (simultaneamente).
+  // //union, intersection e difference
+  // var resultado = 
+  //   portugues.union(europa).difference(portugues.intersection(europa));
+  // print(resultado);
   // var A = {1, 2, 3, 4, 5, 6};
   // var B = {1, 3, 7};
   // print(A.union(B));
