@@ -1,58 +1,97 @@
+import 'dart:js_interop';
+
 import 'package:colecoes/colecoes.dart' as colecoes;
 
 void main(List<String> arguments) {
-  var portugues = {'Brasil', 'Portugal'};
-  var europa = {'Alemanha', 'Portugal', 'Espanha'};
-  
+  var contato = {'Ana': 122345670};
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18
+  // };
+  // print(pessoa.entries);
+  // print(pessoa.entries.runtimeType);
+  // for(final entry in pessoa.entries){
+  //   //nome: Ana
+  //   //idade: 18
+  //   print("${entry.key}: ${entry.value}");
+  // }
+  // print(pessoa.values);
+  // for(final value in pessoa.values){
+  //   print(value);
+  // }
+  //keys, values e entries
+  // for(final key in pessoa.keys){
+  //   print(key);
+  //   //nome: Ana, idade: 18
+  //   print('$key: ${pessoa[key]}');
+  // }
+  // var nome = pessoa['nome'] as String;
+  // print(nome.length);
+  // var idade = pessoa['idade'] as String;
+  // print(idade.length);
+  // print(pessoa['nome']);
+  // print(pessoa['idade']);
+  // print(pessoa['altura'].jsify());
+  // print(pessoa['altura']);
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18,
+  //   'altura': '1.8'
+  // };
+  // print(pessoa.runtimeType);
+  // var teste = <Object?, Object?>{};
+  // var teste2 = {};
+  // teste = 1;
+  // var portugues = {'Brasil', 'Portugal'};
+  // var europa = {'Alemanha', 'Portugal', 'Espanha'};
+  // //Todos os países exceto aqueles em que se fala português e que são europeus (simultaneamente).
+  // //union, intersection e difference
+  // var resultado = 
+  //   portugues.union(europa).difference(portugues.intersection(europa));
+  // print(resultado);
   // var A = {1, 2, 3, 4, 5, 6};
   // var B = {1, 3, 7};
   // print(A.union(B));
   // print(A.intersection(B));
   // print(A.difference(B));
   // print(B.difference(A));
-  // var nomes = {'Ana', 'Rodrigo'};
-  // // print(nomes[0]);
-  // //print(nomes.elementAt(0));
-  // for(final nome in nomes){
-  //   print(nome);
+  // var numeros = {15, 20};
+  // for(final n in numeros){
+  //   print(n);
   // }
-  //Ana:3, Rodrigo:7
-  // var numeros = <String?, int?> {};
-  //conjuntos
-  // var nomes = {'Ana', 'Ana'};
-  // print(nomes);
-  //tuplas
-  // var tupla = ('Ana', 18, true, null, 2);
+  // print(numeros.elementAt(0));
+  // // var eAgora = {};
+  // Set <Object> seila = {"a", 1};
+  // Set numeros = {1, 1.2};
+  // var l1 = [1, 1, 2];
+  // var l2 = [1, 2, 1];
+  // var s1 = {1, 1, 2};
+  // var s2 = {1, 2, 1};
+  // var nomes = {"Ana", "João", null};
+  //sets ou conjuntos
+  // 1, 2 = 2, 1
+  // 1, 2, 2, 3 = 3, 1, 2
+  // (String, int, bool, bool) tupla = ('Ana', 18, true, true);
   // print(tupla);
   // print(tupla.runtimeType);
   // print(tupla.$1);
   // print(tupla.$2);
   // print(tupla.$3);
   // print(tupla.$4);
-  // print(tupla.$5);
+  // var nomes1 = ['Ana', 'Pedro'];
+  // nomes1.add(null);
+  // nomes1 = null;
+  // // nomes1.add(1);
 
-  // List<num?>
-  //List<Object?> qual a diferença entre List<dynamic>
-  // var lista = [];
-  // lista.add(Pessoa());
-  // lista.add(1);
-  // lista[1].falar();
-  // List<String?>? nomes = [];
-  // nomes.add('Ana');
-  // nomes.add(null);
-  // nomes = null;
-  // // var nomes2 = [];
+  // var nomes2 = [];
   // nomes2.add(1);
-  // nomes2.add('Ana');
+  // nomes2.add("Ana");
   // nomes2.add(null);
-
-  // final nomes = ['Ana', 'Pedro'];
-  // nomes[0] = null;
-  //nomes = null
-  //nomes[x] = null
-  // var nomes = ['Ana', 'João'];
+  // // const nomes = ['Ana', 'Pedro'];
   // nomes[0] = 'Ana Silva';
-  // nomes = ['Pedro'];
+  // nomes.add("João");
+  // print(nomes);
+  // nomes = [];
   //type annotation
   // var somenteStrings = <String> ["Ana", "João"];
   // List lista = [1];
