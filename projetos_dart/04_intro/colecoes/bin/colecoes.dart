@@ -50,29 +50,159 @@ void jogoMegaSena(){
   print("Total: ${acertos.length}");
 }
 
+void removerFilme(List<Map<String, dynamic>> filmes) {
+  if (filmes.isEmpty) {
+    print('Nenhum filme cadastrado.');
+    return;
+  }
+
+  print('Título para remover:');
+  final titulo = stdin.readLineSync()!;
+
+  // removeWhere percorre e remove todos que atendem à condição
+  filmes.removeWhere((filme) => filme['titulo'] == titulo);
+
+  print('Se existia, o filme foi removido.');
+}
+
+void adicionarFilme(List<Map<String, dynamic>> filmes) {
+  print("Digite o Título:");
+  final titulo = stdin.readLineSync()!;
+  print("Digite o Gênero:");
+  final genero = stdin.readLineSync()!;
+
+  // Campo "notas" mantido (pode ficar vazio no CRUD básico)
+  filmes.add({'titulo': titulo, 'genero': genero, 'notas': <int>[]});
+  print('Filme adicionado.');
+}
+
+void colecaoFilmes(){
+
+  final List<Map<String, dynamic>> filmes = [];
+
+  while (true) {
+    print('1- Adicionar filme');
+    print('2- Remover filme');
+    print('3- Listar filmes');
+    print('4- Atualizar filme');
+    print('0- Sair');
+    final opcao = int.parse(stdin.readLineSync()!);
+
+    switch (opcao) {
+      case 1:
+        adicionarFilme(filmes);
+        break;
+      case 2:
+        removerFilme(filmes);
+        break;
+      case 3:
+        //listarFilmes(filmes);
+        break;
+      case 4:
+        //atualizarFilme(filmes);
+        break;
+      case 0:
+        print('Saindo...');
+        return;
+      default:
+        print('Opção inválida.');
+    }
+  }
+}
+
 void main(List<String> arguments) {
   
+  colecaoFilmes();
+
+  // // 2.10 - Copiar Coleções
+  // // Sinal de atribuição não gera uma cópia
+  // var nomes = ["Ana","Pedro"];
+  // var copia = nomes;
+  // copia[0] = "Ana Maria";
+  // //print(copia);
+  // //print(nomes);
+  // // Podemos criar cópias de fato utilizando o operador Collection-for ou Spread
+  // var copiaComCollectionFor = [
+  //   for(var nome in nomes)
+  //     nome
+  // ];
+  // copiaComCollectionFor[0] = "Cristina";
+  // //print(nomes);
+  // //print(copiaComCollectionFor);
+  // var copiaComOperadorSpread = [
+  //   ...nomes
+  // ];
+  // copiaComOperadorSpread[0] = "Evandro";
+  // print(nomes);
+  // print(copiaComOperadorSpread);
+
+  // //2.9 - Operador Spread
+  // //Sem utilizar Spread
+  // var nomes1 = ['Ana', 'Pedro'];
+  // var nomes2 = [
+  //   'Cristina',
+  //   nomes1
+  // ]; //nomes2 = ['Cristina', ['Ana','Pedro']], nomes2.length = 2
+  // print(nomes2);
+  // // Utilizando o Spread
+  // var nomes3 = [
+  //   'Cristina',
+  //   ...nomes1
+  // ]; //nomes3 = ['Cristina', 'Ana', 'Pedro'], nomes3.length = 3
+  // print(nomes3);
+
+  // 2.8 - Collection-for
+  // var nomes1 = ['Ana','Pedro'];
+  // var nomes2 = [
+  //   'Cristina',
+  //   for(var nome in nomes1)
+  //     nome
+  // ];
+  // print(nomes2);
+  
+  // 2.7 - Collection-if
+  // var idadePedro = 17;
+  // var idadeCristina = 18;
+
+  // var maioresDeIdade = ['Ana', 'Joao',
+  //   if(idadePedro >= 18) 'Pedro',
+  //   if(idadeCristina >= 18) 'Cristina'];
+
+  // print(maioresDeIdade);
+
+  // 2.6 - Coleções de Coleções
+  // var filmes = <Map<String,dynamic>>[];
+  // print(filmes.runtimeType);
+
+  // print("Titulo?");
+  // String? titulo = stdin.readLineSync(); //String?
+  // print("Gênero?");
+  // String? genero = stdin.readLineSync();
+  // var notas = [5, 5];
+  // filmes.add({"titulo":titulo, "genero":genero, "notas":notas});
+  // print(filmes);
+
   //jogoMegaSena();
 
   // Testes com Coleções: Conjuntos
   // Exemplos com Conjuntos
-  var nomes = {"Ana", "João"};
-  print(nomes); // Ana Joao
-  print(nomes.runtimeType); //Set<String>
+  // var nomes = {"Ana", "João"};
+  // print(nomes); // Ana Joao
+  // print(nomes.runtimeType); //Set<String>
 
-  var paises = {"Brasil", "Brasil"};
-  print(paises); // imprime só Brasil, o conjunto desconsidera valores repetidos
+  // var paises = {"Brasil", "Brasil"};
+  // print(paises); // imprime só Brasil, o conjunto desconsidera valores repetidos
 
-  // criação de um mapa
-  // Map<dynamic,dynamic>
-  var mapa = {}; // estrutura chave valor, cada posicao vai ser uma combinacao chave/valor
-  print(mapa.runtimeType);
+  // // criação de um mapa
+  // // Map<dynamic,dynamic>
+  // var mapa = {}; // estrutura chave valor, cada posicao vai ser uma combinacao chave/valor
+  // print(mapa.runtimeType);
 
-  var paises2 = <String>{}; //Só um tipo de dado especificado = conjunto
-  print(paises2.runtimeType); // _Set<String>
+  // var paises2 = <String>{}; //Só um tipo de dado especificado = conjunto
+  // print(paises2.runtimeType); // _Set<String>
 
-  var precoFrutas = <String, num>{};// Dois tipos de dados especificados = mapa
-  print(precoFrutas.runtimeType); // _Map{String, num}
+  // var precoFrutas = <String, num>{};// Dois tipos de dados especificados = mapa
+  // print(precoFrutas.runtimeType); // _Map{String, num}
 
   // Testes com Coleções
   //type annotation
