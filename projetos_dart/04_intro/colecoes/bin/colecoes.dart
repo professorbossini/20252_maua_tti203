@@ -1,62 +1,97 @@
+import 'dart:js_interop';
+
 import 'package:colecoes/colecoes.dart' as colecoes;
 
 void main(List<String> arguments) {
-  //união, intersecção e diferença
-  var portugues = {'Brasil', 'Portugal'};
-  var europeus = {'Alemanha', 'Portugal', 'Espanha'};
+  var contato = {'Ana': 122345670};
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18
+  // };
+  // print(pessoa.entries);
+  // print(pessoa.entries.runtimeType);
+  // for(final entry in pessoa.entries){
+  //   //nome: Ana
+  //   //idade: 18
+  //   print("${entry.key}: ${entry.value}");
+  // }
+  // print(pessoa.values);
+  // for(final value in pessoa.values){
+  //   print(value);
+  // }
+  //keys, values e entries
+  // for(final key in pessoa.keys){
+  //   print(key);
+  //   //nome: Ana, idade: 18
+  //   print('$key: ${pessoa[key]}');
+  // }
+  // var nome = pessoa['nome'] as String;
+  // print(nome.length);
+  // var idade = pessoa['idade'] as String;
+  // print(idade.length);
+  // print(pessoa['nome']);
+  // print(pessoa['idade']);
+  // print(pessoa['altura'].jsify());
+  // print(pessoa['altura']);
+  // var pessoa = {
+  //   'nome': 'Ana',
+  //   'idade': 18,
+  //   'altura': '1.8'
+  // };
+  // print(pessoa.runtimeType);
+  // var teste = <Object?, Object?>{};
+  // var teste2 = {};
+  // teste = 1;
+  // var portugues = {'Brasil', 'Portugal'};
+  // var europa = {'Alemanha', 'Portugal', 'Espanha'};
+  // //Todos os países exceto aqueles em que se fala português e que são europeus (simultaneamente).
+  // //union, intersection e difference
+  // var resultado = 
+  //   portugues.union(europa).difference(portugues.intersection(europa));
+  // print(resultado);
   // var A = {1, 2, 3, 4, 5, 6};
-  // var B = {7};
+  // var B = {1, 3, 7};
   // print(A.union(B));
-  // print(B.union(A));
   // print(A.intersection(B));
-  // print(B.intersection(A));
   // print(A.difference(B));
   // print(B.difference(A));
-  // // Set <int> numeros = {1, 2};
-  // print(numeros[0]);
-  // numeros[0] = 12;
-  // print(numeros.elementAt(0));
+  // var numeros = {15, 20};
   // for(final n in numeros){
   //   print(n);
   // }
-  // Ana: 45, Rodrigo: 70.5
-  // Map<String?, num?>? teste =  {};
-  // var nomes = <String?> {'Ana', 'João'};
-  // Set <int>?  numeros = {1, 2};
-  // //var numeros = [1, 2, 2];
-  // // numeros = null;
-  // numeros.add(2);
-  // print(numeros);
-  // 1, 2 != 2, 1
-  //1, 2 = 2, 1
-  // 1, 2, 3, 3, 3, 2 = 1, 2, 3 = 3, 3, 3, 2, 2, 2, 1, 1, 1
-  // Object tupla = ('Ana', 18, true, true);
-  // tupla = ("Rodrigo", 18, true, false);
+  // print(numeros.elementAt(0));
+  // // var eAgora = {};
+  // Set <Object> seila = {"a", 1};
+  // Set numeros = {1, 1.2};
+  // var l1 = [1, 1, 2];
+  // var l2 = [1, 2, 1];
+  // var s1 = {1, 1, 2};
+  // var s2 = {1, 2, 1};
+  // var nomes = {"Ana", "João", null};
+  //sets ou conjuntos
+  // 1, 2 = 2, 1
+  // 1, 2, 2, 3 = 3, 1, 2
+  // (String, int, bool, bool) tupla = ('Ana', 18, true, true);
   // print(tupla);
   // print(tupla.runtimeType);
-  //print(tupla.$1);
+  // print(tupla.$1);
   // print(tupla.$2);
   // print(tupla.$3);
   // print(tupla.$4);
-  // tupla[0] = "Rodrigo Bossini";
-  // var nomes = <String?> [null];
-  // List <Object?> nomes = ['Ana', 'Pedro', 1, bool, null];
-  // nomes.add(null);
-  // nomes.add(2.5);
-  // print(nomes[0]);
-  // print(nomes[2].length);
-  // print(nomes[3].length);
-  // print(nomes[4].falar());
-  // nomes.add(1);
-  // nomes = null;
-  // if(nomes != null){
-  //   nomes.add(null);
-  // }
-  //const nomes = ['Ana', 'Pedro'];
-  // nomes = ['João'];
+  // var nomes1 = ['Ana', 'Pedro'];
+  // nomes1.add(null);
+  // nomes1 = null;
+  // // nomes1.add(1);
+
+  // var nomes2 = [];
+  // nomes2.add(1);
+  // nomes2.add("Ana");
+  // nomes2.add(null);
+  // // const nomes = ['Ana', 'Pedro'];
   // nomes[0] = 'Ana Silva';
-  //nomes[0] = 'Ana Silva';
-  //nomes = ['João'];
+  // nomes.add("João");
+  // print(nomes);
+  // nomes = [];
   //type annotation
   // var somenteStrings = <String> ["Ana", "João"];
   // List lista = [1];
