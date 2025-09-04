@@ -1,9 +1,59 @@
-import 'dart:js_interop';
-
 import 'package:colecoes/colecoes.dart' as colecoes;
+import 'dart:io';
 
+bool existe(Map<String, String> contato, List<Map<String,String>> contatos){
+  //for/in
+  //for each ou enhanced for
+  for(final contatoAtual in contatos){
+    if(contatoAtual.keys.first == contato.keys.first){
+      return true;
+    }
+  }
+  return false;
+}
 void main(List<String> arguments) {
-  var contato = {'Ana': 122345670};
+  var contato = {'Ana': '122345670'};
+  final contatos = [contato];
+  int op;
+  const menu = '1-Cadastrar\n2-Listar\n3-Atualizar\n4-Remover\n5-Sair';
+  do{
+    do{
+      print(menu);
+      op = int.parse(stdin.readLineSync()!);
+    }while(op < 1 || op > 5);
+    switch(op){
+      case 1:
+        print('Digite o nome');
+        final nome = stdin.readLineSync();
+        print("Digite o numero");
+        final numero = stdin.readLineSync();
+        print(
+          !existe({nome!: numero!}, contatos) ? 
+          "Contato adicionado" : 
+          "Contato já existe"
+        );
+        if(!existe({nome: numero}, contatos)){
+          contatos.add({nome: numero});
+        }
+        break;
+      case 2:
+        if(contatos.isEmpty){
+          print("Você não tem contatos");
+        }
+        else{
+          for(final contato in contatos){
+            //Ana: 124112
+            print(
+              '${contato.keys.first}: ${contato.values.first}'
+            );
+            stdout.writeln('*******************');
+          }
+        }
+      case 3:
+        
+    }
+  }while(op != 5);
+
   // var pessoa = {
   //   'nome': 'Ana',
   //   'idade': 18
