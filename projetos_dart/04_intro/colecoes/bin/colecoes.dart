@@ -1,9 +1,62 @@
-import 'dart:js_interop';
-
 import 'package:colecoes/colecoes.dart' as colecoes;
+import 'dart:io';
 
+bool existe(Map <String, String> contato, List <Map<String,String>> contatos){
+  for(final contatoAtual in contatos){
+    if(contatoAtual.keys.single == contato.keys.single){
+      return true;
+    }  
+  } 
+  return false; 
+}
 void main(List<String> arguments) {
-  var contato = {'Ana': 122345670};
+  const contato =  {'Ana': '1223444'};
+  final contatos = [contato];
+  const menu = '1-Cadastrar\n2-Listar\n3-Atualizar\n4-Remover\n5-Sair';
+  int opcao;
+  do{
+    do{
+      print(menu);
+      opcao = int.parse(stdin.readLineSync()!);
+    }while(opcao < 1 || opcao > 5);
+    switch(opcao){
+      case 1:
+        print('Digite o nome');
+        final nome = stdin.readLineSync()!;
+        print('Digite o número');
+        final numero = stdin.readLineSync()!;
+        final novoContato = {nome: numero};
+        final jaExiste = existe(novoContato, contatos);
+        print(!jaExiste ? "Contato adicionado" : "Contato já existe");
+        if(!jaExiste){
+          contatos.add(novoContato);
+        }
+      case 2:
+        if(contatos.isEmpty){
+          print("Você não tem contatos");
+        }
+        else{
+          //Ana: 11322141
+          //**************/
+          //Rodrigo: 1321413241
+          //****************/
+          for (final contatoAtual in contatos){
+            print('${contatoAtual.keys.single}: ${contatoAtual.values.single}');
+            // stdout.writeln('********************');
+            print('********************');
+            // stdout.write('********************\n');           
+
+          }
+        }
+      case 3:
+
+      case 4:
+      
+      case 5:
+        print('Até logo');
+    }
+  }while(opcao != 5);
+}
   // var pessoa = {
   //   'nome': 'Ana',
   //   'idade': 18
@@ -127,18 +180,16 @@ void main(List<String> arguments) {
   // print(nomes[3]);
   // print(nomes.toString());
   // print(nomes.runtimeType);
-}
+// import 'package:colecoes/colecoes.dart' as colecoes;
 
-import 'package:colecoes/colecoes.dart' as colecoes;
-
-void main(List<String> arguments) {
-  var portugues = {'Brasil', 'Portugal'};
-  var europa = {'Alemanha', 'Portugal', 'Espanha'};
-  var todos = portugues.union(europa);
-  var parte2 = europa.intersection('Portugal');
-  var resultado = todos.difference(parte2);
-  var resultado2 = parte2.difference(resultado);
-  var linhaSoh = portugues.union(europa).difference(portugues.intersection(europa));
+// void main(List<String> arguments) {
+//   var portugues = {'Brasil', 'Portugal'};
+//   var europa = {'Alemanha', 'Portugal', 'Espanha'};
+//   var todos = portugues.union(europa);
+//   var parte2 = europa.intersection('Portugal');
+//   var resultado = todos.difference(parte2);
+//   var resultado2 = parte2.difference(resultado);
+//   var linhaSoh = portugues.union(europa).difference(portugues.intersection(europa));
   // var A = {1, 2, 3, 4, 5, 6};
   // var B = {7};
   // print(A.union(B));
@@ -230,5 +281,5 @@ void main(List<String> arguments) {
   // print(nomes[1]);
   // print(nomes[3]);
   // print(nomes.toString());
-  // print(nomes.runtimeType);
-}
+//   // print(nomes.runtimeType);
+// }
