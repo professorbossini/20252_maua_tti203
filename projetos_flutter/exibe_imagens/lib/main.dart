@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  var app = const MaterialApp(
-    title: "Material App",
+  var app = MaterialApp(
     home: Scaffold(
-      body: Center(child: Text('Hello, Dart')),
+      appBar: AppBar(title: Text("Minhas Imagens")),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print("Hello");
+        },
+        child: const Icon(Icons.add),
+      ),
     ),
-  );  
+  );
   runApp(app);
 }
