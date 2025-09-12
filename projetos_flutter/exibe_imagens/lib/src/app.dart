@@ -10,7 +10,7 @@ class AppState extends State <App> {
         appBar: AppBar(title: const Text('Minhas imagens')),
         body: Text('Número de imagens: $numeroImagens.'),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
+          onPressed: () { 
           //numeroImagens = numeroImagens + 1;
           setState(() => numeroImagens = numeroImagens + 1);
            print(numeroImagens);
