@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
-class AppState extends State<App> {
+class AppState extends State <App> {
   int numeroImagens = 0;
-  String chavePexels = '';
+  String chaveAPI = "a91Qyfh2Ud1rdeOGKV8aTR5Aj9UmRvdma6EdyhC9EfKStoAyt7rmDuhV";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Minhas imagens')),
-        body: Text('Número de imagens: $numeroImagens'),
+        body: Text('Número de imagens: $numeroImagens.'),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // numeroImagens = numeroImagens + 1;
-            setState(() => numeroImagens = numeroImagens + 1);
+          onPressed: () { 
+          //numeroImagens = numeroImagens + 1;
+          setState(() => numeroImagens = numeroImagens + 1);
+           print(numeroImagens);
           },
           child: Icon(Icons.camera_alt),
         ),
@@ -22,8 +23,6 @@ class AppState extends State<App> {
 }
 
 class App extends StatefulWidget{
-
-  @override
   State <App> createState(){
     return AppState();
   }
