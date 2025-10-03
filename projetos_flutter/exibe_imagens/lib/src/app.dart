@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'models/image_model.dart';
 class AppState extends State <App> {
 
   void obterImagem(){
@@ -17,9 +19,14 @@ class AppState extends State <App> {
     });
     //IO-Bound
     //processamento assíncrono
-    req.send().then((result){});
-    print('oi');
-    
+    req.send().then((result){
+      http.Response.fromStream(result).then((response){
+        var decodedJSON = json.decode(response.body);
+        var imagem = ImageModel.fromJSON(decodedJSON);
+        print(imagem);
+      });
+    });
+     
     
   }
 
