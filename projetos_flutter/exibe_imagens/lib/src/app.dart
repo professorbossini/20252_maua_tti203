@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'models/image_model.dart';
 class AppState extends State <App> {
 
-  void obterImagem(){
+  void obterImagem() async {
     var url = Uri.https(
       'api.pexels.com',
       '/v1/search',
@@ -17,19 +17,14 @@ class AppState extends State <App> {
     req.headers.addAll({
       'Authorization': chaveAPI
     });
-    //IO-Bound
-    //processamento assíncrono
-    req.send().then((result){
-      http.Response.fromStream(result).then((response){
-        var decodedJSON = json.decode(response.body);
-        var imagem = ImageModel.fromJSON(decodedJSON);
-        print(imagem);
-      });
-    });
-     
-    
+    var result = await req.send();
+    final response = await http.Response.fromStream(result);
+    var decodedJSON = json.decode(response.body);
+    var imagem = ImageModel.fromJSON(decodedJSON);
+    imagens.add(imagem);    
   }
 
+  List<ImageModel> imagens = [];
   int numeroImagens = 0;
   String chaveAPI = "a91Qyfh2Ud1rdeOGKV8aTR5Aj9UmRvdma6EdyhC9EfKStoAyt7rmDuhV";
   @override
