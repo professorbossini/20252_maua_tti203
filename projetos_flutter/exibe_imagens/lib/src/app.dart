@@ -3,6 +3,28 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'models/image_model.dart';
 class AppState extends State <App> {
+
+  void obterImagem() async {
+    var url = Uri.https(
+      'api.pexels.com',
+      '/v1/search',
+      {'query': 'cats', 'page': '1', 'per_page': '1'}
+    );
+    var req = http.Request(
+      'get',
+      url
+    );
+    req.headers.addAll({
+      'Authorization': chaveAPI
+    });
+    var result = await req.send();
+    final response = await http.Response.fromStream(result);
+    var decodedJSON = json.decode(response.body);
+    var imagem = ImageModel.fromJSON(decodedJSON);
+    imagens.add(imagem);    
+  }
+
+  List<ImageModel> imagens = [];
   int numeroImagens = 0;
   String chaveAPI = "a91Qyfh2Ud1rdeOGKV8aTR5Aj9UmRvdma6EdyhC9EfKStoAyt7rmDuhV";
   @override
@@ -12,10 +34,8 @@ class AppState extends State <App> {
         appBar: AppBar(title: const Text('Minhas imagens')),
         body: Text('Número de imagens: $numeroImagens.'),
         floatingActionButton: FloatingActionButton(
-          onPressed: () { 
-          //numeroImagens = numeroImagens + 1;
-          setState(() => numeroImagens = numeroImagens + 1);
-           print(numeroImagens);
+          onPressed: (){
+            obterImagem();
           },
           child: Icon(Icons.camera_alt),
         ),
