@@ -17,6 +17,6 @@ class ImageModel{
   //sobreescrever o toString, exibindo url e alt
   @override
   String toString() {
-    return 'url: $url \nalt: $alt';
+    return 'url: $url, alt: $alt';
   }
 }
