@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http show get;
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'models/image_model.dart';
 class AppState extends State <App> {
 
-  void obterImagem(){
-    //requests.get()
-    //axios.get()
-    //fetch()
+  void obterImagem() async {
     var url = Uri.https(
       'api.pexels.com',
       '/v1/search',
-      {'query': 'cats', 'per_page': '1', 'page': '1'}
-    );    
+      {'query': 'cats', 'page': '1', 'per_page': '1'}
+    );
+    var req = http.Request(
+      'get',
+      url
+    );
+    req.headers.addAll({
+      'Authorization': chaveAPI
+    });
+    var result = await req.send();
+    final response = await http.Response.fromStream(result);
+    var decodedJSON = json.decode(response.body);
+    var imagem = ImageModel.fromJSON(decodedJSON);
+    imagens.add(imagem);    
   }
 
+  List<ImageModel> imagens = [];
   int numeroImagens = 0;
   String chaveAPI = "a91Qyfh2Ud1rdeOGKV8aTR5Aj9UmRvdma6EdyhC9EfKStoAyt7rmDuhV";
   @override
