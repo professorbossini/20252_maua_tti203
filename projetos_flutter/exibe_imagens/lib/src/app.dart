@@ -49,7 +49,7 @@ class AppState extends State<App> {
     //    http.get(Uri.parse('https://api.pexels.com/v1/search?query=people'));
   }
 
-  String chaveAPI = "sua_chave_aqui";
+  String chaveAPI = "MCykgXsWgwvdDIt0027ghvD0j8BFNxLjeFqHr0MweIxcopG8xz2y58XI";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
