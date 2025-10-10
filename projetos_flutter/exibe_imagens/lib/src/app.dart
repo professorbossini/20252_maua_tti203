@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'models/image_model.dart';
+import 'widgets/image_list.dart';
 class AppState extends State <App> {
 
   void obterImagem() async {
     var url = Uri.https(
       'api.pexels.com',
       '/v1/search',
-      {'query': 'cats', 'page': '1', 'per_page': '1'}
+      {'query': 'cats', 'page': '${numeroImagens + 1}', 'per_page': '1'}
     );
     var req = http.Request(
       'get',
@@ -21,9 +22,11 @@ class AppState extends State <App> {
     final response = await http.Response.fromStream(result);
     var decodedJSON = json.decode(response.body);
     var imagem = ImageModel.fromJSON(decodedJSON);
-    imagens.add(imagem);    
+    setState((){
+      ++numeroImagens;
+      imagens.add(imagem);    
+    });
   }
-
   List<ImageModel> imagens = [];
   int numeroImagens = 0;
   String chaveAPI = "a91Qyfh2Ud1rdeOGKV8aTR5Aj9UmRvdma6EdyhC9EfKStoAyt7rmDuhV";
@@ -32,7 +35,7 @@ class AppState extends State <App> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Minhas imagens')),
-        body: Text('Número de imagens: $numeroImagens.'),
+        body: ImageList(imagens),
         floatingActionButton: FloatingActionButton(
           onPressed: (){
             obterImagem();
