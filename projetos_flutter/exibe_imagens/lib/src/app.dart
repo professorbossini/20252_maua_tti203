@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'models/image_model.dart';
+import 'widgets/image_list.dart';
 class AppState extends State <App> {
 
   void obterImagem() async {
@@ -23,11 +24,10 @@ class AppState extends State <App> {
     var decodedJSON = json.decode(response.body);
     var imagem = ImageModel.fromJSON(decodedJSON);
     setState((){
-      numeroImagens++;
+      ++numeroImagens;
       imagens.add(imagem);    
     });
   }
-
   List<ImageModel> imagens = [];
   int numeroImagens = 0;
   String chaveAPI = "a91Qyfh2Ud1rdeOGKV8aTR5Aj9UmRvdma6EdyhC9EfKStoAyt7rmDuhV";
