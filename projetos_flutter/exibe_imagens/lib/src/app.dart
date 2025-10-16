@@ -1,34 +1,54 @@
-// importando a classe MaterialApp()
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'models/image_model.dart';
+import 'widgets/image_list.dart';
+class AppState extends State <App> {
 
-// App é um Widget com estado
-// seu conteúdo depende de informações externas ou é um conteúdo que é incrementado
-// a partir de ações externas (clique no botão por exemplo)
-class App extends StatefulWidget {
-  @override
-  State<App> createState() {
-    return AppState();
+  void obterImagem() async {
+    var url = Uri.https(
+      'api.pexels.com',
+      '/v1/search',
+      {'query': 'cats', 'page': '${numeroImagens + 1}', 'per_page': '1'}
+    );
+    var req = http.Request(
+      'get',
+      url
+    );
+    req.headers.addAll({
+      'Authorization': chaveAPI
+    });
+    var result = await req.send();
+    final response = await http.Response.fromStream(result);
+    var decodedJSON = json.decode(response.body);
+    var imagem = ImageModel.fromJSON(decodedJSON);
+    setState((){
+      ++numeroImagens;
+      imagens.add(imagem);    
+    });
   }
-}
-
-// Criamos o estado da classe App, que vai ser o AppState
-// herdamos de State<App> para já ter como base uma classe que modela
-// a estrutura de estado de uma aplicação
-class AppState extends State<App> {
+  List<ImageModel> imagens = [];
   int numeroImagens = 0;
+  String chaveAPI = "a91Qyfh2Ud1rdeOGKV8aTR5Aj9UmRvdma6EdyhC9EfKStoAyt7rmDuhV";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Minhas imagens')),
+        body: ImageList(imagens),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() => numeroImagens++);
+          onPressed: (){
+            obterImagem();
           },
           child: Icon(Icons.camera_alt),
         ),
-        body: Text("$numeroImagens"),
       ),
     );
+  }
+}
+
+class App extends StatefulWidget{
+  State <App> createState(){
+    return AppState();
   }
 }
