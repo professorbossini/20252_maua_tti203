@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'validators.dart';
 
-class Bloc with Validator{
+class Bloc with Validators{
   //StreamController vem do pacote dart:async
   // Widget(Evento) -> Stream(Função) -> Widget(Atualização)
   final _emailController = StreamController <String> ();
@@ -21,3 +21,4 @@ class Bloc with Validator{
     _passwordController.close();
   }
 }
+final bloc = Bloc();

@@ -4,7 +4,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'dart:async';
 
-mixin Validator {
+mixin Validators {
   // validação do email
   final validateEmail = StreamTransformer<String, String>.fromHandlers(
     handleData: (email, sink) {
