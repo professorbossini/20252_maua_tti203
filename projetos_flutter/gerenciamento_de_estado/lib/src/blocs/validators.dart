@@ -4,24 +4,25 @@ import 'package:email_validator/email_validator.dart';
 mixin Validators{
   final validateEmail = StreamTransformer<String, String>.fromHandlers(
     handleData: (email, sink){
+      print(email);
       if(EmailValidator.validate(email)){
-        //adicionar o email ao sink
+        sink.add(email);
       }
       else{
-        //caso contrário adicionar a mensagem de erro
-        //E-mail inválido
+        sink.addError('E-mail inválido');
       }
     }
   );
+
+  final validatePassword = StreamTransformer<String, String>.fromHandlers(
+    handleData: (password, sink) {
+      //validar com o pacote RegExp do Dart
+      if(password.length > 3){
+        sink.add(password);
+      }
+      else{
+        sink.addError('Senha deve ter, pelo menos, 4 caracteres');
+      }
+    },
+  );
 }
-
-
-
-
-// class Pessoa{
-//   String nome;
-// }
-
-// class Aluno extends Pessoa with Validators{
-
-// }
