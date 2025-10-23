@@ -1,26 +1,22 @@
 import 'dart:async';
-import 'validators.dart';
 
-// Representa o estado centralizado da aplicação
-// Bloc: Widget(Evento) > Stream(Função) > Widget
+import 'package:gerenciamento_de_estado/src/blocs/validators.dart';
 
-class Bloc with Validators {
-  // criamos dois controllers para guardar/manipular os valores nos campos de texto
-  // _ = private
-  final _emailController = StreamController<String>();
-  final _senhaController = StreamController<String>();
+class Bloc with Validators{
+  final _emailController = StreamController <String>();
+  final _passwordController = StreamController <String>();
 
-  // a função dentro da propriedade stream é um objeto da classe Stream e, nesse caso, recebe uma String como parâmetro
-  Stream<String> get email => _emailController.stream.transform(validateEmail); // retorna a rotina (stream) executada em cada controller
-  Stream<String> get senha => _senhaController.stream.transform(validatePassword);
+  Stream <String> get email => _emailController.stream.transform(validateEmail);
 
-  // retorna a função que faz parte da rotina (stream), guardada dentro da propriedade sink
+  Stream <String> get password => _passwordController.stream.transform(validatePassword);
+
   Function(String) get changeEmail => _emailController.sink.add;
-  Function(String) get changePassword => _senhaController.sink.add;
 
-  // desalocar a memória após utilizar o controller
+  Function(String) get changePassword => _passwordController.sink.add;
+
   void dispose(){
     _emailController.close();
-    _senhaController.close();
+    _passwordController.close();
   }
 }
+final bloc = Bloc();

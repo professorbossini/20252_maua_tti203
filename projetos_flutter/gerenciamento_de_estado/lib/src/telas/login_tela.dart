@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../blocs/bloc.dart';
 class LoginTela extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -25,25 +25,41 @@ class LoginTela extends StatelessWidget{
   }
 
   Widget emailField(){
-    return TextField(
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        //texto que aparece quando o usuário toca/clica
-        hintText: 'seu@email.com',
-        //rótulo flutuante, usuário clica, a dica sobe
-        labelText: 'Endereço de email'
-      ),
-    );
+    return StreamBuilder(
+      stream: bloc.email, 
+      builder:(context, AsyncSnapshot <String> snapshot){
+        return TextField(
+          onChanged: (novoValor){
+            bloc.changeEmail(novoValor);
+          },
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            //texto que aparece quando o usuário toca/clica
+            hintText: 'seu@email.com',
+            //rótulo flutuante, usuário clica, a dica sobe
+            labelText: 'Endereço de email',
+            errorText: snapshot.hasError ? snapshot.error.toString() : null
+          ),
+        );
+      }
+    ); 
   }
 
   Widget passwordField(){
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: 'Senha',
-        labelText: 'Senha',        
-      ),
-    );
+    return StreamBuilder(
+      stream: bloc.password, //bloc.password já vem com o objeto sink que pode ou nao ter um erro
+      builder: (context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: bloc.changePassword,
+          obscureText: true,
+          decoration: InputDecoration(
+            hintText: "Senha",
+            labelText: "Senha",
+            errorText: snapshot.hasError ? snapshot.error.toString() : null
+          )
+        );
+      },
+    ); 
   }
 
   Widget submitButton(){
