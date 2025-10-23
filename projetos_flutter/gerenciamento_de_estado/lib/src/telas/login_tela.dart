@@ -46,13 +46,21 @@ class LoginTela extends StatelessWidget{
   }
 
   Widget passwordField(){
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: 'Senha',
-        labelText: 'Senha',        
-      ),
+    return StreamBuilder(
+      stream: bloc.password, 
+      builder: (BuildContext context, AsyncSnapshot <String> snapshot){
+        return TextField(
+          onChanged: bloc.changePassword,
+          obscureText: true,
+          decoration: InputDecoration(
+            hintText: 'Senha',
+            labelText: 'Senha',
+            errorText: snapshot.error?.toString()        
+          ),
+        );
+      }
     );
+
   }
 
   Widget submitButton(){
