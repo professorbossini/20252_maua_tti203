@@ -10,4 +10,9 @@ class Provider extends InheritedWidget{
   }  
 
   Provider({Key? key, required Widget child}): super(key: key, child: child);
+
+  static Bloc of (BuildContext context){
+    return context.dependOnInheritedWidgetOfExactType<Provider>()!.bloc;
+  }
+  
 }
