@@ -17,7 +17,7 @@ class LoginTela extends StatelessWidget {
           passwordField(bloc),
           Container(
             margin: EdgeInsets.only(top: 12.0),
-            child: Row(children: [Expanded(child: submitButton())]),
+            child: Row(children: [Expanded(child: submitButton(bloc))]),
           ),
         ],
       ),
@@ -66,14 +66,14 @@ class LoginTela extends StatelessWidget {
     );
   }
 
-  Widget submitButton() {
+  Widget submitButton(Bloc bloc) {
     return StreamBuilder(
       //tentando usar o stream de email
-      stream: bloc.email,
-      builder: (context, AsyncSnapshot<String> snapshot) {
+      stream: bloc.emailPasswordAreOk,
+      builder: (context, AsyncSnapshot<bool> snapshot) {
         return ElevatedButton(
         //se tiver erro, associamos null à propriedade onPressed, desabilitando o botão
-          onPressed: snapshot.hasError ? null : () {},
+          onPressed: snapshot.hasData ? (){} : null,
           child: Text('Login'),
         );
       },

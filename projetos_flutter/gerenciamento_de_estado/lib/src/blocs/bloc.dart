@@ -1,11 +1,15 @@
 import 'dart:async';
 import 'validators.dart';
+import 'package:rxdart/rxdart.dart';
+
 
 class Bloc with Validators{
   //StreamController vem do pacote dart:async
   // Widget(Evento) -> Stream(Função) -> Widget(Atualização)
-  final _emailController = StreamController <String> ();
-  final _passwordController = StreamController <String> ();
+  final _emailController = StreamController <String>.broadcast();
+  final _passwordController = StreamController <String>.broadcast();
+
+  Stream<bool> get emailPasswordAreOk => CombineLatestStream.combine2(email, password, (e, p) => true);
 
   // email e password são objetos (da classe Stream) que consideram os dados de email e senha já validados
   Stream<String> get email => _emailController.stream.transform(validateEmail);
@@ -21,4 +25,4 @@ class Bloc with Validators{
     _passwordController.close();
   }
 }
-final bloc = Bloc();
+//final bloc = Bloc();
