@@ -1,3 +1,4 @@
+import 'package:exibe_imagens/src/widgets/image_list.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

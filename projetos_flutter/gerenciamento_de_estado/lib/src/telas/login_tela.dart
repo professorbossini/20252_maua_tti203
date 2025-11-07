@@ -62,17 +62,18 @@ class LoginTela extends StatelessWidget{
         );
       },
     );
+
   }
 
   Widget submitButton(Bloc bloc){
     return StreamBuilder(
       stream: bloc.emailAndPasswordAreOkay, 
-      builder: (BuildContext context, AsyncSnapshot <bool> snapshot){
+      builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
         return ElevatedButton(
-          onPressed:  snapshot.hasData ? bloc.submitForm : null, 
+          onPressed:  snapshot.hasData ? (){bloc.submitForm();} : null , 
           child: Text('Login')
         );
-      } 
+      }
     );
   }
 }

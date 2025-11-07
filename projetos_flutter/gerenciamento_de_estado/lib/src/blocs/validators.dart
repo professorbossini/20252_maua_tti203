@@ -4,7 +4,7 @@ import 'package:email_validator/email_validator.dart';
 mixin Validators{
   final validateEmail = StreamTransformer<String, String>.fromHandlers(
     handleData: (email, sink){
-      print(email);
+      // print(email);
       if(EmailValidator.validate(email)){
         sink.add(email);
       }
