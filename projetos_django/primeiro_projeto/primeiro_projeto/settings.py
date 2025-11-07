@@ -16,6 +16,16 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+ROOT_URLCONF = "primeiro_projeto.urls"
+#operador / sobrecarregado para objetos Path
+#representa um separador independente de SO
+TEMPLATE_DIR = BASE_DIR / Path('templates')
+STATIC_DIR = BASE_DIR / Path('static')
+STATICFILES_DIRS = [
+    STATIC_DIR
+]
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -55,7 +65,7 @@ ROOT_URLCONF = 'primeiro_projeto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

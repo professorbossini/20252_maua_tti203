@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from primeira_aplicacao import views
+from django.conf.urls import include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # '' = definimos como endereço a raiz do local onde o servidor web da aplicação
     # esta sendo executado, no nosso caso, localhost:8000
-    path('', views.index, name="index")
+    path('', views.index, name="index"),
+    path('outro_nome/', include('primeira_aplicacao.urls'))
 ]

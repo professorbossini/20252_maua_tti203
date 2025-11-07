@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render
 
 # Create your views here.
@@ -8,4 +9,7 @@ from django.http import HttpResponse
 # executar essa função idex
 # a função recebe uma requisição http e retorna um texto como resposta
 def index(request):
-    return HttpResponse("Hello, Django")
+    variaveis = {
+        'minha_primeira_variavel': "Hello, variáveis depois de alterar o diretório!"
+    }
+    return render(request, 'primeira_aplicacao/index.html', context=variaveis)
